@@ -6,8 +6,7 @@ import XCTest
 let fahrenheitValues: [Double] = [-10, 0, 10, 32, 72, 100]
 let format = "\n%5.1f°F equals %5.1f°C "
 
-func convertedToCelsius(fahrenheit: Double) -> Double
-{
+func convertedToCelsius(fahrenheit: Double) -> Double {
     return (fahrenheit - 32) * (5/9)
 }
 
