@@ -21,6 +21,7 @@ class CoolCell: UIView
         layer.borderWidth = 2
         layer.borderColor = UIColor.white.cgColor
         
+        // TODO: Configure in IB
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(bounce))
         tapRecognizer.numberOfTapsRequired = 2
         addGestureRecognizer(tapRecognizer)
@@ -39,11 +40,24 @@ extension CoolCell
         animateBounce(duration: 1, size: CGSize(width: 120, height: 240))
     }
     
-    func animateBounce(duration: TimeInterval, size: CGSize) {
-        UIView.animate(withDuration: duration) { [weak self] in
-            guard let frame = self?.frame else { return }
-            self?.frame = frame.offsetBy(dx: size.width, dy: size.height)
+    func configureBounce(duration: TimeInterval, size: CGSize) {
+        UIView.setAnimationRepeatCount(3.5)
+        UIView.setAnimationRepeatAutoreverses(true)
+        let translation = CGAffineTransform(translationX: size.width, y: size.height)
+        transform = translation.rotated(by: CGFloat(.pi / 2.0))
+    }
+    
+    func configureFinalBounce(duration: TimeInterval, size: CGSize) {
+        print("In \(#function), \(#file):line \(#line)")
+        UIView.animate(withDuration: duration) {
+            [weak self] in self?.transform = CGAffineTransform.identity
         }
+    }
+    
+    func animateBounce(duration: TimeInterval, size: CGSize) {
+        UIView.animate(withDuration: duration,
+                       animations: { [weak self]   in self?.configureBounce(duration: duration, size: size) },
+                       completion: { [weak self] _ in self?.configureFinalBounce(duration: duration, size: size) })
     }
 }
 
@@ -69,9 +83,7 @@ extension CoolCell
 {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         highlighted = true
-        
         guard let touch = touches.first, let view = touch.view else { return }
-        
         view.superview?.bringSubview(toFront: view)
     }
     
