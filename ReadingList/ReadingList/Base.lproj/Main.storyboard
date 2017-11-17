@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,9 +33,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cdb-dj-XIi">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pEq-Sg-Ly4">
+                                    <rect key="frame" x="150" y="10" width="20" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                            <viewLayoutGuide key="safeArea" id="kfv-Xm-NrY"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BookSummary" textLabel="8zk-0p-UuW" detailTextLabel="FoR-o8-uEK" style="IBUITableViewCellStyleSubtitle" id="U31-9z-mJo">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="67" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U31-9z-mJo" id="RtR-lC-BsU">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -63,7 +76,7 @@
                         </prototypes>
                         <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="W4I-kL-knL" id="iyb-1v-VdV"/>
+                            <outlet property="dataSource" destination="eJT-B7-5n3" id="Sbq-UP-oJf"/>
                             <outlet property="delegate" destination="W4I-kL-knL" id="jFg-FW-uBM"/>
                         </connections>
                     </tableView>
@@ -74,10 +87,19 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dataSource" destination="eJT-B7-5n3" id="4zc-x5-QBW"/>
+                        <outlet property="spinner" destination="pEq-Sg-Ly4" id="ind-ao-nLZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCg-DP-NWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="eJT-B7-5n3" customClass="BookDataSource" customModule="ReadingList" customModuleProvider="target">
+                    <connections>
+                        <outlet property="tableView" destination="kTg-UE-K3w" id="t9x-Mi-LVW"/>
+                    </connections>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="-448" y="75"/>
+            <point key="canvasLocation" x="-448.125" y="75"/>
         </scene>
         <!--BookDetail-->
         <scene sceneID="8iT-uR-7PZ">

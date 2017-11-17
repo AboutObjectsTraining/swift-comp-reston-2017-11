@@ -3,11 +3,24 @@ import UIKit
 class ReadingListController: UITableViewController
 {
     @IBOutlet var dataSource: BookDataSource!
+    @IBOutlet var spinner: UIActivityIndicatorView!
+    
+    func hideSpinner() {
+        DispatchQueue.main.async {
+            self.spinner.stopAnimating()
+            UIView.animate(withDuration: 0.1) { [weak self] in
+                var frame = self?.tableView?.tableHeaderView?.frame
+                frame?.size.height = 0
+                self?.spinner.alpha = 0
+                self?.tableView?.tableHeaderView?.frame = frame ?? CGRect.zero }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource.load()
-        navigationItem.rightBarButtonItem = editButtonItem
+        spinner.startAnimating()
+        dataSource.load(delay: 0) { [weak self] in self?.hideSpinner() }
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,77 +48,4 @@ extension ReadingListController
     @IBAction func doneEditing(segue: UIStoryboardSegue) { dataSource.save() }
     @IBAction func doneAdding(segue: UIStoryboardSegue) { }
     @IBAction func cancelAdding(segue: UIStoryboardSegue) { }
-}
-
-// TODO: Migrate to another class.
-//
-// MARK: - UITableViewDataSource
-//extension ReadingListController
-//{
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return readingList.books.count
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookSummary") else {
-//            fatalError("Unable to dequeue cell with identifier \"BookSummary\". Make sure identifier is correctly set in storyboard.")
-//        }
-//        let book = readingList.books[indexPath.row]
-//        cell.textLabel?.text = book.title
-//        cell.detailTextLabel?.text = "\(book.year ?? "   ") \(book.author?.fullName ?? "Unknown")"
-//        return cell
-//    }
-//
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            readingList.books.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//            store.save(readingList: readingList)
-//        }
-//    }
-//
-//    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        let book = readingList.books[sourceIndexPath.row]
-//        readingList.books.remove(at: sourceIndexPath.row)
-//        readingList.books.insert(book, at: destinationIndexPath.row)
-//        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
-//        store.save(readingList: readingList)
-//    }
-//}
-
-// MARK: - Another version of UITableViewDataSource
-extension ReadingListController
-{
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 100 // FIXME: !!!
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookSummary") else {
-//            fatalError("Unable to dequeue cell with identifier \"BookSummary\". Make sure identifier is correctly set in storyboard.")
-//        }
-//        cell.detailTextLabel?.text = "Row \(indexPath.row + 1)"
-//        return cell
-//    }
-}
-
-// MARK: - Earlier version of UITableViewDataSource
-extension ReadingListController
-{
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////        let cell = tableView.dequeueReusableCell(withIdentifier: "Foo") ??
-////            UITableViewCell(style: .subtitle, reuseIdentifier: "Foo")
-//
-//        var cell: UITableViewCell
-//
-//        if let reusedCell = tableView.dequeueReusableCell(withIdentifier: "Foo") {
-//            cell = reusedCell
-//        } else {
-//            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Foo")
-////            cell.textLabel?.text = "Row \(indexPath.row + 1)"
-//        }
-//
-//        cell.textLabel?.text = "Row \(indexPath.row + 1)"
-//        return cell
-//    }
 }
