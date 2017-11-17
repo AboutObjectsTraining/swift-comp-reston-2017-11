@@ -18,6 +18,8 @@
 		AB6DA1981FBDEDCA00242085 /* EditBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6DA1971FBDEDCA00242085 /* EditBookCell.swift */; };
 		AB6DA19A1FBDF82500242085 /* UIStoryboardSegue+ReadingListAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6DA1991FBDF82500242085 /* UIStoryboardSegue+ReadingListAdditions.swift */; };
 		AB8894D81FBCD8B7001AF2CB /* ReadingListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8894D71FBCD8B7001AF2CB /* ReadingListController.swift */; };
+		ABEBF9C01FBF7EF000023946 /* UndoManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEBF9BF1FBF7EF000023946 /* UndoManaging.swift */; };
+		ABEBF9C21FBF7FFF00023946 /* UndoRedo.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABEBF9C11FBF7FFF00023946 /* UndoRedo.xib */; };
 		ABF48EC91FBCDF4200516608 /* BookDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF48EC71FBCDF4200516608 /* BookDetail.storyboard */; };
 		ABF48ECB1FBCE1E200516608 /* AddBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF48ECA1FBCE1E200516608 /* AddBook.storyboard */; };
 		ABF48ED51FBCF49A00516608 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF48ECD1FBCF49A00516608 /* Author.swift */; };
@@ -43,6 +45,8 @@
 		AB6DA1971FBDEDCA00242085 /* EditBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookCell.swift; sourceTree = "<group>"; };
 		AB6DA1991FBDF82500242085 /* UIStoryboardSegue+ReadingListAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboardSegue+ReadingListAdditions.swift"; sourceTree = "<group>"; };
 		AB8894D71FBCD8B7001AF2CB /* ReadingListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListController.swift; sourceTree = "<group>"; };
+		ABEBF9BF1FBF7EF000023946 /* UndoManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoManaging.swift; sourceTree = "<group>"; };
+		ABEBF9C11FBF7FFF00023946 /* UndoRedo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UndoRedo.xib; sourceTree = "<group>"; };
 		ABF48EC81FBCDF4200516608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ReadingList/Base.lproj/BookDetail.storyboard; sourceTree = "<group>"; };
 		ABF48ECA1FBCE1E200516608 /* AddBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddBook.storyboard; sourceTree = "<group>"; };
 		ABF48ECD1FBCF49A00516608 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
@@ -94,9 +98,11 @@
 				AB6DA1971FBDEDCA00242085 /* EditBookCell.swift */,
 				AB1AE2841FBE1A8800048091 /* AddBookController.swift */,
 				AB6DA1991FBDF82500242085 /* UIStoryboardSegue+ReadingListAdditions.swift */,
+				ABEBF9BF1FBF7EF000023946 /* UndoManaging.swift */,
 				ABF48ECA1FBCE1E200516608 /* AddBook.storyboard */,
 				ABF48EC71FBCDF4200516608 /* BookDetail.storyboard */,
 				AB45B3471FBCA49600D360C6 /* Main.storyboard */,
+				ABEBF9C11FBF7FFF00023946 /* UndoRedo.xib */,
 				AB45B34A1FBCA49600D360C6 /* Assets.xcassets */,
 				AB45B34C1FBCA49600D360C6 /* LaunchScreen.storyboard */,
 				AB45B34F1FBCA49600D360C6 /* Info.plist */,
@@ -183,6 +189,7 @@
 				AB45B34B1FBCA49600D360C6 /* Assets.xcassets in Resources */,
 				ABF48EC91FBCDF4200516608 /* BookDetail.storyboard in Resources */,
 				ABF48ECB1FBCE1E200516608 /* AddBook.storyboard in Resources */,
+				ABEBF9C21FBF7FFF00023946 /* UndoRedo.xib in Resources */,
 				AB45B3491FBCA49600D360C6 /* Main.storyboard in Resources */,
 				ABF48ED81FBCF49A00516608 /* Info.plist in Resources */,
 			);
@@ -208,6 +215,7 @@
 				ABF48EDA1FBCF49A00516608 /* ReadingList.swift in Sources */,
 				AB6DA1961FBDECD400242085 /* EditBookController.swift in Sources */,
 				AB45B3441FBCA49600D360C6 /* AppDelegate.swift in Sources */,
+				ABEBF9C01FBF7EF000023946 /* UndoManaging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

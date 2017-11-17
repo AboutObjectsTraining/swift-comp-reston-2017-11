@@ -16,7 +16,7 @@ extension AppDelegate
     func configureAppearance() {
         UIView.appearance().tintColor = UIColor.purple
         UITableViewCell.appearance().backgroundColor = UIColor.tableCellBackground
-        UILabel.appearance().defaultTextColor = UIColor.labelColor
+        UILabel.appearance(whenContainedInInstancesOf: [BookDetailController.self, ReadingListController.self]).defaultTextColor = UIColor.labelColor
     }
 }
 

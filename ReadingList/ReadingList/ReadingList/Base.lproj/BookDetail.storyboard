@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -298,46 +297,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="accessoryView" destination="OZQ-Ae-9S2" id="oSr-Y1-agV"/>
                         <outlet property="firstNameCell" destination="fbn-S3-c8J" id="rz9-Z2-F7E"/>
                         <outlet property="lastNameCell" destination="2RC-N5-y0i" id="zc7-HK-RfW"/>
-                        <outlet property="redoButton" destination="ElP-Uc-Fgr" id="5m9-O5-MVv"/>
                         <outlet property="titleCell" destination="o6q-Qy-y6J" id="EoF-37-ybz"/>
-                        <outlet property="undoButton" destination="s5s-xu-UAg" id="6Du-py-i8k"/>
+                        <outlet property="undoButton" destination="ItX-SK-Ume" id="V5g-2H-1ud"/>
                         <outlet property="yearCell" destination="wDu-P3-KkC" id="f2k-Fs-gUd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4V-I4-e6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="OZQ-Ae-9S2">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PSK-20-Mb4">
-                            <rect key="frame" x="119" y="7" width="82" height="30"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ElP-Uc-Fgr">
-                                    <rect key="frame" x="0.0" y="0.0" width="36" height="30"/>
-                                    <state key="normal" title="Redo"/>
-                                    <connections>
-                                        <action selector="redo:" destination="b4V-I4-e6N" eventType="touchUpInside" id="CjU-Ab-u7A"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5s-xu-UAg">
-                                    <rect key="frame" x="44" y="0.0" width="38" height="30"/>
-                                    <state key="normal" title="Undo"/>
-                                    <connections>
-                                        <action selector="undo:" destination="b4V-I4-e6N" eventType="touchUpInside" id="RJK-tW-A22"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="PSK-20-Mb4" firstAttribute="centerY" secondItem="OZQ-Ae-9S2" secondAttribute="centerY" id="5Tl-cm-SW4"/>
-                        <constraint firstItem="PSK-20-Mb4" firstAttribute="centerX" secondItem="OZQ-Ae-9S2" secondAttribute="centerX" id="OJK-cK-VCd"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="Xb9-t0-QNm"/>
-                </view>
                 <exit id="wdt-vr-3R1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2029" y="75"/>

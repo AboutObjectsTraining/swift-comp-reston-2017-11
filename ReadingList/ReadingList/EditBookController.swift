@@ -1,6 +1,6 @@
 import UIKit
 
-class EditBookController: UITableViewController
+class EditBookController: UITableViewController, UndoManaging
 {
     var book: Book?
     
@@ -9,19 +9,24 @@ class EditBookController: UITableViewController
     @IBOutlet weak var firstNameCell: EditBookCell!
     @IBOutlet weak var lastNameCell: EditBookCell!
     
-    private weak var selectedTextField: UITextField?
+    weak var selectedTextField: UITextField?
     
     @IBOutlet weak var undoButton: UIButton!
     @IBOutlet weak var redoButton: UIButton!
     
-    @IBOutlet weak var accessoryView: UIView?
+    @IBOutlet var accessoryView: UIView?
     override var inputAccessoryView: UIView? {
         return accessoryView
+    }
+    
+    func loadUndoRedoNib() {
+        Bundle.main.loadNibNamed("UndoRedo", owner: self, options: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUndoManagerObservation()
+        loadUndoRedoNib()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,34 +51,12 @@ class EditBookController: UITableViewController
     }
 }
 
-// MARK: - Undo Management
 extension EditBookController: UITextFieldDelegate
 {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        undoButton.isEnabled = true
-        selectedTextField = textField
-        return true
+        return editingChanged(textField)
     }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        undoButton.isEnabled = false
-        redoButton.isEnabled = false
-    }
-    
-//    @IBAction func enableUndo(sender: UITextField) {
-//        undoButton.isEnabled = true
-//        selectedTextField = sender
-//    }
-    
-    fileprivate func configureUndoManagerObservation() {
-        NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: nil, queue: nil) { [weak self] notification in
-            self?.undoButton.isEnabled = self?.selectedTextField?.undoManager?.canUndo ?? false
-            self?.redoButton.isEnabled = true
-        }
-        NotificationCenter.default.addObserver(forName: .NSUndoManagerDidRedoChange, object: nil, queue: nil) { [weak self] notification in
-            self?.redoButton.isEnabled = self?.selectedTextField?.undoManager?.canRedo ?? false
-            self?.undoButton.isEnabled = true
-        }
+        editingEnded()
     }
 }
-
