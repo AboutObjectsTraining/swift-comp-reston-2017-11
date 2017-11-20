@@ -12,6 +12,7 @@ class BookDetailController: UITableViewController, BookViewing
     @IBOutlet weak var yearCell: UITableViewCell!
     @IBOutlet weak var firstNameCell: UITableViewCell!
     @IBOutlet weak var lastNameCell: UITableViewCell!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -19,6 +20,7 @@ class BookDetailController: UITableViewController, BookViewing
         yearCell.detailTextLabel?.text = book?.year
         firstNameCell.detailTextLabel?.text = book?.author?.firstName
         lastNameCell.detailTextLabel?.text = book?.author?.lastName
+        imageView.image = UIImage.image(named: book?.author?.lastName ?? "")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,3 +34,12 @@ class BookDetailController: UITableViewController, BookViewing
         // TODO: (never mind)
     }
 }
+
+extension UIImage
+{
+    class func image(named name: String, default: String = "NoImage") -> UIImage? {
+        guard let image = UIImage(named: name) else { return UIImage(named: `default`) }
+        return image
+    }
+}
+

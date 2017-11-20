@@ -16,6 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Qod-y6-fQo">
+                            <rect key="frame" x="0.0" y="305.5" width="320" height="148"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJB-n0-HMy">
+                                    <rect key="frame" x="100" y="0.0" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                            </subviews>
+                        </view>
                         <sections>
                             <tableViewSection headerTitle="Book Info" id="89k-7H-0JC">
                                 <cells>
@@ -136,6 +146,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="firstNameCell" destination="c8D-Ol-xnQ" id="6XD-au-Svh"/>
+                        <outlet property="imageView" destination="gJB-n0-HMy" id="7Q0-lM-Pfw"/>
                         <outlet property="lastNameCell" destination="I8X-b3-uh6" id="BWq-gy-bOF"/>
                         <outlet property="titleCell" destination="FJv-YC-U4N" id="RIi-iB-bqy"/>
                         <outlet property="yearCell" destination="a0a-L2-1HA" id="cAh-tA-62L"/>
@@ -143,7 +154,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qui-PI-kiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="789" y="75"/>
+            <point key="canvasLocation" x="787.5" y="75"/>
         </scene>
         <!--Edit-->
         <scene sceneID="RVa-6E-Za3">
@@ -307,7 +318,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4V-I4-e6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wdt-vr-3R1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2029" y="75"/>
+            <point key="canvasLocation" x="2342" y="75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pfy-Rb-mKM">
@@ -325,7 +336,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdZ-aQ-eNe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237.5" y="75"/>
+            <point key="canvasLocation" x="1545" y="75"/>
         </scene>
     </scenes>
 </document>
